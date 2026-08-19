@@ -1,0 +1,3066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carl & Faith</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Cormorant+Garamond:wght@400;600&family=Caveat:wght@600&family=Allura&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#F7F0E4;
+    color:#6f6657;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+section{
+    scroll-margin-top:90px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    width:100%;
+    background:rgba(247,240,228,.97);
+    padding:16px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:9999;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
+    backdrop-filter:blur(8px);
+}
+
+.logo{
+    font-family:'Caveat',cursive;
+    font-size:36px;
+    color:#C97E90;
+    white-space:nowrap;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:27px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#808162;
+    font-size:15px;
+    transition:.3s ease;
+}
+
+nav a:hover{
+    color:#C97E90;
+}
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+.music-nav-button{
+    border:none;
+    background:transparent;
+    color:#808162;
+    font-family:'Poppins',sans-serif;
+    font-size:15px;
+    cursor:pointer;
+    padding:4px 0;
+    display:flex;
+    align-items:center;
+    transition:.3s ease;
+}
+
+.music-nav-button:hover,
+.music-nav-button.playing{
+    color:#C97E90;
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:90px 20px;
+}
+
+.hero-content{
+    width:100%;
+    max-width:900px;
+    text-align:center;
+}
+
+.hero img{
+    width:400px;
+    max-width:90%;
+    height:auto;
+    display:block;
+    margin:20px auto 30px;
+}
+
+.name{
+    font-family:'Allura',cursive;
+    font-size:62px;
+    color:#C97E90;
+}
+
+.invited{
+    margin-top:15px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    line-height:1.6;
+    color:#808162;
+}
+
+
+/* =========================================================
+   VERSE
+========================================================= */
+
+.verse-section{
+    width:100%;
+    background:#808162;
+    padding:65px 8%;
+    text-align:center;
+}
+
+.verse-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    color:#F7F0E4;
+    margin-bottom:10px;
+}
+
+.verse{
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    font-style:italic;
+    line-height:1.45;
+    color:#F7F0E4;
+}
+
+
+/* =========================================================
+   RIBBON
+========================================================= */
+
+.ribbon{
+    display:flex;
+    justify-content:center;
+    margin:30px 0 15px;
+}
+
+.ribbon span{
+    width:220px;
+    height:18px;
+    background-repeat:repeat-x;
+    background-size:44px 18px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='18' viewBox='0 0 44 18'%3E%3Cpath d='M0 9 C5 0 11 0 16 9 S27 18 32 9 S39 0 44 9' fill='none' stroke='%23B04B5F' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.ribbon.bottom{
+    transform:rotate(180deg);
+    margin-top:15px;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-card{
+    width:calc(100% - 40px);
+    max-width:430px;
+    margin:50px auto 0;
+    padding:30px 20px;
+    text-align:center;
+    background:#faf4ea;
+    border:2px solid #d7c7b3;
+    border-radius:20px;
+}
+
+.countdown-card h3{
+    font-family:'Cormorant Garamond',serif;
+    color:#b04b5f;
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+#countdown{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+#countdown div{
+    display:flex;
+    flex-direction:column;
+    min-width:55px;
+}
+
+#countdown span{
+    font-size:2rem;
+    font-weight:600;
+    color:#b04b5f;
+}
+
+#countdown small{
+    text-transform:uppercase;
+    font-size:.7rem;
+    color:#8b7f70;
+}
+
+.countdown-card h4{
+    font-family:'Caveat',cursive;
+    color:#b04b5f;
+    font-size:2.3rem;
+    margin-bottom:20px;
+}
+
+.calendar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    font-size:1.4rem;
+    color:#7c6b60;
+    margin-bottom:15px;
+}
+
+.heart-day{
+    position:relative;
+    color:#b04b5f;
+    font-size:2.6rem;
+    line-height:1;
+}
+
+.heart-day span{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+}
+
+.countdown-card p{
+    color:#7c6b60;
+    margin-top:8px;
+}
+
+
+/* =========================================================
+   GENERAL TITLE
+========================================================= */
+
+.title{
+    font-family:'Caveat',cursive;
+    font-size:60px;
+    text-align:center;
+    color:#6E715D;
+    margin-bottom:55px;
+}
+
+
+/* =========================================================
+   PROGRAM
+========================================================= */
+
+#program{
+    background:#F7F0E4;
+    padding:100px 8%;
+    text-align:center;
+}
+
+.timeline{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.timeline img{
+    width:100%;
+    max-width:1000px;
+    height:auto;
+    display:block;
+    margin:auto;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details-section{
+    position:relative;
+    background:#F7F0E4;
+    padding:110px 8% 100px;
+    overflow:hidden;
+}
+
+.details-content{
+    position:relative;
+    z-index:2;
+}
+
+.details-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.details-card{
+    text-align:center;
+}
+
+.details-card h3{
+    font-family:'Caveat',cursive;
+    font-size:55px;
+    color:#808162;
+    margin-bottom:15px;
+}
+
+.details-card p,
+.dress-text{
+    font-family:'Poppins',sans-serif;
+    font-size:20px;
+    line-height:1.6;
+    color:#808162;
+}
+
+
+/* =========================================================
+   GOOGLE MAP
+========================================================= */
+
+.google-maps-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:18px;
+    padding:11px 35px;
+    background:#808162;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:14px;
+    letter-spacing:1px;
+    transition:.3s ease;
+}
+
+.google-maps-button:hover{
+    background:#C97E90;
+    transform:translateY(-2px);
+}
+
+.map-image{
+    width:100%;
+    max-width:420px;
+    height:auto;
+    display:block;
+    margin:auto;
+}
+
+.dress-image{
+    width:100%;
+    max-width:320px;
+    height:auto;
+    display:block;
+    margin:auto;
+}
+
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+.palette{
+    margin-top:80px;
+    text-align:center;
+}
+
+.palette h3{
+    font-family:'Caveat',cursive;
+    font-size:60px;
+    color:#808162;
+    margin-bottom:25px;
+}
+
+.colors{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.colors span{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:block;
+    border:3px solid rgba(255,255,255,.5);
+}
+
+
+/* =========================================================
+   SPONSORS
+========================================================= */
+
+.sponsors{
+    margin-top:100px;
+    text-align:center;
+    color:#808162;
+}
+
+.sponsors h3{
+    font-family:'Caveat',cursive;
+    font-size:60px;
+    color:#808162;
+    margin-bottom:20px;
+}
+
+.sponsors-intro{
+    max-width:650px;
+    margin:0 auto 55px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.6;
+}
+
+.sponsor-parents{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    max-width:800px;
+    margin:0 auto 65px;
+}
+
+.sponsor-group h4{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    font-weight:600;
+    margin-bottom:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.sponsor-group p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.5;
+}
+
+.principal-sponsors{
+    margin-bottom:65px;
+}
+
+.principal-sponsors > h4,
+.secondary-sponsors > h4{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:25px;
+}
+
+.principal-names{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    max-width:800px;
+    margin:auto;
+    gap:8px 60px;
+}
+
+.principal-names p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.45;
+}
+
+.secondary-sponsors{
+    width:100%;
+    max-width:950px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.secondary-sponsors > h4{
+    margin-bottom:40px;
+}
+
+.secondary-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:80px;
+    row-gap:48px;
+    width:100%;
+}
+
+.secondary-item{
+    width:100%;
+    text-align:center;
+    min-height:100px;
+}
+
+.secondary-item h5,
+.bridesmaids h5{
+    margin-bottom:10px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.secondary-item p,
+.bridesmaids p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    line-height:1.55;
+}
+
+.bridesmaids{
+    width:100%;
+    text-align:center;
+    margin:55px auto 0;
+    padding-top:5px;
+    grid-column:1/-1;
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+#rsvp{
+    position:relative;
+    overflow:hidden;
+    background:#A6A98F;
+    color:#fffdf2;
+    min-height:850px;
+    padding:105px 18px 100px;
+    text-align:center;
+}
+
+#rsvp:before{
+    content:"";
+    position:absolute;
+    left:-7%;
+    right:-7%;
+    top:-55px;
+    height:125px;
+    background:#F7F0E4;
+    border-radius:0 0 52% 52%;
+}
+
+#rsvp:after{
+    content:"";
+    position:absolute;
+    left:-9%;
+    right:-9%;
+    bottom:-62px;
+    height:115px;
+    background:#F7F0E4;
+    border-radius:52% 52% 0 0;
+    transform:rotate(1.5deg);
+}
+
+#rsvp > *{
+    position:relative;
+    z-index:2;
+}
+
+.rsvp-title{
+    font-family:'Caveat',cursive;
+    font-size:76px;
+    line-height:.95;
+    font-weight:500;
+    color:#fffdf2;
+    margin:5px 0 24px;
+}
+
+.rsvp-subtitle{
+    width:min(550px,92%);
+    margin:0 auto;
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    line-height:1.55;
+    color:#f7f5e9;
+}
+
+.rsvp-card{
+    width:min(600px,100%);
+    margin:25px auto 0;
+    text-align:center;
+}
+
+
+/* =========================================================
+   CUTE ENVELOPE
+========================================================= */
+
+.rsvp-envelope-button{
+    position:relative;
+    display:block;
+    width:280px;
+    height:220px;
+    margin:25px auto 0;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    padding:0;
+    transition:transform .3s ease;
+}
+
+.rsvp-envelope-button:hover{
+    transform:translateY(-6px) rotate(-1deg);
+}
+
+.envelope-shadow{
+    position:absolute;
+    width:230px;
+    height:22px;
+    background:rgba(80,60,50,.18);
+    border-radius:50%;
+    bottom:4px;
+    left:25px;
+    filter:blur(4px);
+}
+
+
+/* envelope body */
+
+.envelope{
+    position:absolute;
+    width:230px;
+    height:145px;
+    left:25px;
+    top:35px;
+    background:#FFF8EC;
+    border:3px solid #D49AA5;
+    border-radius:8px;
+    box-shadow:0 12px 25px rgba(80,50,40,.15);
+    overflow:hidden;
+}
+
+
+/* bottom triangular flap */
+
+.envelope-flap-bottom{
+    position:absolute;
+    left:-5px;
+    bottom:-2px;
+    width:236px;
+    height:100px;
+    background:#F4D6D6;
+    clip-path:polygon(0 0,50% 65%,100% 0,100% 100%,0 100%);
+    border-top:3px solid #D49AA5;
+}
+
+
+/* side folds */
+
+.envelope-left-fold{
+    position:absolute;
+    left:0;
+    top:0;
+    width:115px;
+    height:145px;
+    background:#F9E9E1;
+    clip-path:polygon(0 0,100% 50%,0 100%);
+}
+
+.envelope-right-fold{
+    position:absolute;
+    right:0;
+    top:0;
+    width:115px;
+    height:145px;
+    background:#F9E9E1;
+    clip-path:polygon(100% 0,0 50%,100% 100%);
+}
+
+
+/* top flap */
+
+.envelope-top-flap{
+    position:absolute;
+    z-index:4;
+    left:0;
+    top:0;
+    width:230px;
+    height:100px;
+    background:#EFC8CE;
+    clip-path:polygon(0 0,100% 0,50% 75%);
+    transform-origin:top center;
+    transition:transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* heart seal */
+
+.envelope-seal{
+    position:absolute;
+    z-index:6;
+    left:50%;
+    top:68px;
+    transform:translateX(-50%);
+    width:52px;
+    height:52px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#B04B5F;
+    color:white;
+    border-radius:50%;
+    font-size:25px;
+    border:4px solid #F7D9D9;
+    box-shadow:0 4px 10px rgba(80,50,40,.18);
+    transition:.5s ease;
+}
+
+.envelope-label{
+    position:absolute;
+    z-index:8;
+    bottom:15px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-family:'Caveat',cursive;
+    font-size:24px;
+    color:#B04B5F;
+}
+
+
+/* little flowers */
+
+.envelope-flower{
+    position:absolute;
+    z-index:9;
+    font-size:22px;
+    color:#C97E90;
+}
+
+.flower-one{
+    left:18px;
+    top:18px;
+    transform:rotate(-15deg);
+}
+
+.flower-two{
+    right:18px;
+    top:18px;
+    transform:rotate(15deg);
+}
+
+
+/* opened envelope */
+
+.rsvp-envelope-button.open .envelope-top-flap{
+    transform:rotateX(180deg);
+}
+
+.rsvp-envelope-button.open .envelope-seal{
+    opacity:0;
+    transform:translateX(-50%) scale(.5);
+}
+
+.rsvp-envelope-button.open{
+    transform:translateY(-3px);
+}
+
+.rsvp-note{
+    margin-top:10px;
+    font-family:'Caveat',cursive;
+    font-size:23px;
+    color:#fffdf2;
+}
+
+
+/* =========================================================
+   TABLE PICTURE PLACEHOLDER
+========================================================= */
+
+.rsvp-table-picture{
+    width:min(650px,95%);
+    margin:35px auto 0;
+    text-align:center;
+}
+
+.rsvp-table-picture img{
+    width:100%;
+    height:auto;
+    display:block;
+    margin:auto;
+    border-radius:18px;
+}
+
+/*
+   WHEN YOU HAVE YOUR TABLE PICTURE:
+
+   Change:
+
+   src=""
+
+   to:
+
+   src="table.png"
+
+   Example:
+
+   <img src="table.png" alt="Wedding table">
+*/
+
+
+/* =========================================================
+   RSVP PANEL
+========================================================= */
+
+.rsvp-panel{
+    position:relative;
+    width:min(500px,94%);
+    margin:25px auto 0;
+    padding:28px 24px;
+    background:#F7F0E4;
+    color:#6f6657;
+    border-radius:20px;
+    border:2px solid #D7C7B3;
+    box-shadow:0 10px 30px rgba(60,50,40,.12);
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    transform:translateY(15px);
+    transition:.5s ease;
+}
+
+.rsvp-panel.open{
+    opacity:1;
+    max-height:450px;
+    transform:translateY(0);
+}
+
+.close-doodle{
+    position:absolute;
+    right:12px;
+    top:8px;
+    border:0;
+    background:transparent;
+    color:#808162;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.rsvp-panel h3{
+    font-family:'Cormorant Garamond',serif;
+    color:#B04B5F;
+    font-size:30px;
+    margin:5px 0 10px;
+}
+
+.rsvp-panel p{
+    font-family:'Poppins',sans-serif;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.doodle-confirm{
+    display:inline-block;
+    margin-top:18px;
+    padding:11px 22px;
+    background:#808162;
+    color:#fff;
+    text-decoration:none;
+    border-radius:25px;
+    font-family:'Poppins',sans-serif;
+    font-size:11px;
+    letter-spacing:1px;
+    transition:.3s ease;
+}
+
+.doodle-confirm:hover{
+    background:#B04B5F;
+}
+
+
+/* =========================================================
+   GIFTS
+========================================================= */
+
+#gifts{
+    background:#F7F0E4;
+    padding:88px 18px 100px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.gifts-title{
+    font-family:'Caveat',cursive;
+    font-size:76px;
+    line-height:.95;
+    font-weight:600;
+    color:#808162;
+    margin:0 0 28px;
+}
+
+.gifts-subtitle{
+    width:min(660px,94%);
+    margin:0 auto;
+    color:#756b5d;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    line-height:1.72;
+}
+
+.gift-box-button{
+    position:relative;
+    display:block;
+    width:300px;
+    height:335px;
+    margin:35px auto 2px;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    padding:0;
+}
+
+.gift-box-base{
+    position:absolute;
+    z-index:2;
+    left:55px;
+    bottom:30px;
+    width:190px;
+    height:145px;
+    background:#C77E90;
+    border:3px solid #B24C60;
+    border-radius:7px 7px 22px 22px;
+    box-shadow:0 19px 30px rgba(80,50,40,.16);
+}
+
+.gift-ribbon-v{
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:28px;
+    transform:translateX(-50%);
+    background:#E9C3C3;
+}
+
+.gift-ribbon-h{
+    position:absolute;
+    left:0;
+    right:0;
+    top:52%;
+    height:34px;
+    transform:translateY(-50%);
+    background:#E9C3C3;
+}
+
+.gift-box-lid{
+    position:absolute;
+    z-index:5;
+    left:35px;
+    bottom:170px;
+    width:220px;
+    height:57px;
+    background:#B54C62;
+    border:3px solid #9F4052;
+    border-radius:10px 10px 13px 13px;
+    transform-origin:28px 48px;
+    transition:transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.gift-box-lid .gift-ribbon-v{
+    background:#E8BFC2;
+}
+
+.gift-bow{
+    position:absolute;
+    top:-39px;
+    width:58px;
+    height:43px;
+    background:#D985A4;
+    border:3px solid #B24C60;
+    border-radius:70% 22% 70% 22%;
+}
+
+.gift-bow.left{
+    left:80px;
+    transform:rotate(-25deg);
+}
+
+.gift-bow.right{
+    right:80px;
+    transform:scaleX(-1) rotate(-25deg);
+}
+
+.gift-knot{
+    position:absolute;
+    left:50%;
+    top:-6px;
+    width:25px;
+    height:25px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:#D985A4;
+    border:3px solid #B24C60;
+}
+
+.gift-message-pop{
+    position:absolute;
+    z-index:4;
+    left:50%;
+    bottom:125px;
+    width:145px;
+    height:112px;
+    padding:30px 12px 10px;
+    transform:translateX(-50%) translateY(24px);
+    opacity:0;
+    background:#fffaf0;
+    border:3px solid #D7C7B3;
+    border-radius:10px;
+    color:#808162;
+    font-family:'Caveat',cursive;
+    font-size:22px;
+    line-height:1.05;
+    box-shadow:0 9px 20px rgba(70,50,40,.12);
+    transition:.65s ease .08s;
+}
+
+.gift-message-pop span{
+    display:block;
+    color:#B04B5F;
+    font-size:27px;
+}
+
+.gift-box-button.open .gift-box-lid{
+    transform:rotate(-25deg) translate(-23px,-20px);
+}
+
+.gift-box-button.open .gift-message-pop{
+    opacity:1;
+    transform:translateX(-50%) translateY(-22px);
+}
+
+.gift-hint{
+    font-family:'Caveat',cursive;
+    font-size:24px;
+    color:#B04B5F;
+    margin:0 0 28px;
+}
+
+.gift-details{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(18px);
+    transition:.55s ease;
+}
+
+.gift-details.open{
+    max-height:650px;
+    opacity:1;
+    transform:translateY(0);
+}
+
+.gift-card{
+    max-width:560px;
+    margin:auto;
+    padding:34px 28px;
+    background:#faf4ea;
+    border:2px solid #d7c7b3;
+    border-radius:24px;
+}
+
+.gift-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    color:#808162;
+    margin:5px 0 14px;
+}
+
+.gift-card p{
+    font-family:'Cormorant Garamond',serif;
+    font-size:18px;
+    line-height:1.6;
+    color:#6f6657;
+}
+
+.gift-heart{
+    font-size:38px;
+    color:#B04B5F;
+}
+
+.gift-message{
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid #d7c7b3;
+    font-family:'Caveat',cursive!important;
+    font-size:24px!important;
+    color:#B04B5F!important;
+}
+
+
+/* =========================================================
+   FAQS
+========================================================= */
+
+#faqs{
+    width:100%;
+    background:#700026;
+    padding:85px 5% 110px;
+    text-align:center;
+    color:#F7F0E4;
+}
+
+.faq-title{
+    margin:0 auto 55px;
+    font-family:'Caveat',cursive;
+    font-size:72px;
+    font-weight:600;
+    line-height:1;
+    color:#F7F0E4;
+}
+
+.faq-container{
+    width:100%;
+    max-width:560px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.faq-card{
+    width:100%;
+    padding:32px 38px;
+    border:2px solid #F7F0E4;
+    background:transparent;
+    text-align:center;
+}
+
+.faq-card h3{
+    margin-bottom:15px;
+    color:#F7F0E4;
+    font-family:'Poppins',sans-serif;
+    font-size:17px;
+    font-weight:600;
+    line-height:1.4;
+}
+
+.faq-card p{
+    margin:0;
+    color:#F7F0E4;
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    font-weight:300;
+    line-height:1.55;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:50px 20px;
+    text-align:center;
+    background:#F7F0E4;
+    color:#808162;
+    font-family:'Caveat',cursive;
+    font-size:25px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    header{
+        padding:14px 20px;
+    }
+
+    .nav-right{
+        gap:15px;
+    }
+
+    nav{
+        gap:15px;
+    }
+
+    nav a,
+    .music-nav-button{
+        font-size:13px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    header{
+        padding:12px 15px;
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .logo{
+        font-size:30px;
+    }
+
+    .nav-right{
+        width:100%;
+        justify-content:center;
+        gap:12px;
+    }
+
+    nav{
+        gap:12px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    nav a,
+    .music-nav-button{
+        font-size:12px;
+    }
+
+    .hero{
+        min-height:90vh;
+        padding:60px 20px;
+    }
+
+    .hero img{
+        width:280px;
+    }
+
+    .name{
+        font-size:48px;
+    }
+
+    .invited{
+        font-size:19px;
+    }
+
+    .verse-section{
+        padding:55px 6%;
+    }
+
+    .verse-title{
+        font-size:28px;
+    }
+
+    .verse{
+        font-size:25px;
+    }
+
+    #program{
+        padding:75px 5%;
+    }
+
+    .details-section{
+        padding:80px 5%;
+    }
+
+    .details-grid{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
+
+    .details-card h3{
+        font-size:48px;
+    }
+
+    .details-card p,
+    .dress-text{
+        font-size:18px;
+    }
+
+    .sponsor-parents{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .principal-names{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .secondary-grid{
+        grid-template-columns:1fr 1fr;
+        column-gap:30px;
+        row-gap:40px;
+    }
+
+    #rsvp,
+    #gifts{
+        padding:75px 20px;
+    }
+
+    .rsvp-title,
+    .gifts-title{
+        font-size:60px;
+    }
+
+    #faqs{
+        padding:70px 5% 90px;
+    }
+
+    .faq-title{
+        font-size:62px;
+    }
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media(max-width:480px){
+
+    header{
+        padding:10px 8px;
+    }
+
+    .logo{
+        font-size:27px;
+    }
+
+    .nav-right{
+        gap:6px;
+    }
+
+    nav{
+        gap:8px;
+    }
+
+    nav a,
+    .music-nav-button{
+        font-size:10.5px;
+    }
+
+    .hero{
+        min-height:85vh;
+        padding:50px 20px;
+    }
+
+    .hero img{
+        width:220px;
+        max-width:80%;
+    }
+
+    .name{
+        font-size:42px;
+    }
+
+    .invited{
+        font-size:17px;
+        line-height:1.5;
+    }
+
+    .verse-section{
+        padding:48px 20px;
+    }
+
+    .verse-title{
+        font-size:25px;
+    }
+
+    .verse{
+        font-size:21px;
+    }
+
+    .countdown-card{
+        padding:25px 12px;
+    }
+
+    #countdown{
+        gap:8px;
+    }
+
+    #countdown div{
+        min-width:48px;
+    }
+
+    #countdown span{
+        font-size:1.5rem;
+    }
+
+    #countdown small{
+        font-size:.6rem;
+    }
+
+    .calendar{
+        gap:10px;
+        font-size:1.1rem;
+    }
+
+    .heart-day{
+        font-size:2.2rem;
+    }
+
+    .title{
+        font-size:46px;
+    }
+
+    #program{
+        padding:65px 15px;
+    }
+
+    .details-section{
+        padding:65px 20px;
+    }
+
+    .details-card h3{
+        font-size:42px;
+    }
+
+    .details-card p,
+    .dress-text{
+        font-size:16px;
+    }
+
+    .palette{
+        margin-top:60px;
+    }
+
+    .palette h3{
+        font-size:46px;
+    }
+
+    .colors{
+        gap:9px;
+    }
+
+    .colors span{
+        width:40px;
+        height:40px;
+    }
+
+    .sponsors{
+        margin-top:70px;
+    }
+
+    .sponsors h3{
+        font-size:48px;
+    }
+
+    .sponsors-intro{
+        font-size:18px;
+        margin-bottom:40px;
+    }
+
+    .sponsor-group h4{
+        font-size:22px;
+    }
+
+    .sponsor-group p{
+        font-size:18px;
+    }
+
+    .principal-sponsors > h4,
+    .secondary-sponsors > h4{
+        font-size:23px;
+    }
+
+    .principal-names{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .principal-names p{
+        font-size:18px;
+    }
+
+    .secondary-grid{
+        grid-template-columns:1fr;
+        row-gap:35px;
+    }
+
+    .secondary-item{
+        min-height:auto;
+    }
+
+    .secondary-item h5{
+        font-size:21px;
+    }
+
+    .secondary-item p{
+        font-size:18px;
+    }
+
+    .bridesmaids{
+        margin-top:40px;
+    }
+
+    .rsvp-title,
+    .gifts-title{
+        font-size:52px;
+    }
+
+    .rsvp-subtitle,
+    .gifts-subtitle{
+        font-size:16px;
+    }
+
+    .rsvp-envelope-button{
+        transform:scale(.85);
+        margin-top:15px;
+        margin-bottom:-20px;
+    }
+
+    .rsvp-envelope-button:hover{
+        transform:scale(.85) translateY(-5px);
+    }
+
+    .rsvp-panel{
+        width:95%;
+    }
+
+    .rsvp-panel p{
+        font-size:13px;
+    }
+
+    .gifts-subtitle{
+        font-size:19px;
+        line-height:1.58;
+    }
+
+    .gift-box-button{
+        transform:scale(.9);
+        margin-top:28px;
+        margin-bottom:-18px;
+    }
+
+    .gift-message{
+        font-size:21px!important;
+    }
+
+    #faqs{
+        padding:60px 20px 80px;
+    }
+
+    .faq-title{
+        font-size:55px;
+        margin-bottom:40px;
+    }
+
+    .faq-container{
+        gap:20px;
+    }
+
+    .faq-card{
+        padding:25px 20px;
+    }
+
+    .faq-card h3{
+        font-size:14px;
+    }
+
+    .faq-card p{
+        font-size:11.5px;
+    }
+
+    footer{
+        padding:35px 20px;
+        font-size:22px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:360px){
+
+    .logo{
+        font-size:25px;
+    }
+
+    nav{
+        gap:6px;
+    }
+
+    nav a,
+    .music-nav-button{
+        font-size:9.5px;
+    }
+
+    .hero img{
+        width:190px;
+    }
+
+    .name{
+        font-size:37px;
+    }
+
+    #countdown{
+        gap:5px;
+    }
+
+    #countdown div{
+        min-width:43px;
+    }
+
+    .rsvp-title,
+    .gifts-title{
+        font-size:46px;
+    }
+
+    .rsvp-envelope-button{
+        transform:scale(.78);
+        margin-top:0;
+        margin-bottom:-35px;
+    }
+
+    .rsvp-envelope-button:hover{
+        transform:scale(.78) translateY(-5px);
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<audio id="music" loop preload="auto">
+    <source src="BWY.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header>
+
+    <div class="logo">
+        Carl & Faith
+    </div>
+
+    <div class="nav-right">
+
+        <button
+            id="musicButton"
+            class="music-nav-button"
+            type="button"
+            aria-label="Play music">
+            ♫
+        </button>
+
+        <nav>
+
+            <a href="#home">Home</a>
+            <a href="#program">Program</a>
+            <a href="#details">Details</a>
+            <a href="#rsvp">RSVP</a>
+            <a href="#gifts">Gifts</a>
+            <a href="#faqs">FAQs</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <img src="couple.png" alt="Carl and Faith">
+
+        <div class="name">
+            Carl & Faith
+        </div>
+
+        <div class="invited">
+
+            No happiness is complete without the presence
+            of our dearest ones.
+
+            <br>
+
+            With great joy, we request the pleasure of your
+            company to celebrate our marriage.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VERSE
+========================================================= -->
+
+<section class="verse-section">
+
+    <div class="verse-title">
+        Matthew 19:6
+    </div>
+
+    <div class="verse">
+
+        What God has joined together,
+        <br>
+        Let no one separate.
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COUNTDOWN
+========================================================= -->
+
+<div class="ribbon">
+    <span></span>
+</div>
+
+<div class="countdown-card">
+
+    <h3>
+        Counting Days
+    </h3>
+
+    <div id="countdown">
+
+        <div>
+            <span id="days">0</span>
+            <small>Days</small>
+        </div>
+
+        <div>
+            <span id="hours">0</span>
+            <small>Hours</small>
+        </div>
+
+        <div>
+            <span id="minutes">0</span>
+            <small>Minutes</small>
+        </div>
+
+        <div>
+            <span id="seconds">0</span>
+            <small>Seconds</small>
+        </div>
+
+    </div>
+
+    <h4>
+        Save the Date
+    </h4>
+
+    <div class="calendar">
+
+        <div>3</div>
+        <div>4</div>
+
+        <div class="heart-day">
+            ❤
+            <span>5</span>
+        </div>
+
+        <div>6</div>
+        <div>7</div>
+
+    </div>
+
+    <p>
+        Monday, April 05, 2027
+    </p>
+
+    <p>
+        at 4:00 PM
+    </p>
+
+</div>
+
+<div class="ribbon bottom">
+    <span></span>
+</div>
+
+
+<!-- =========================================================
+     PROGRAM
+========================================================= -->
+
+<section id="program">
+
+    <h2 class="title">
+        Wedding Timeline
+    </h2>
+
+    <div class="timeline">
+
+        <img
+            src="timeline.jpeg"
+            alt="Wedding Timeline">
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DETAILS
+========================================================= -->
+
+<section id="details" class="details-section">
+
+    <div class="details-content">
+
+        <h2 class="title">
+            The Finer Details
+        </h2>
+
+        <div class="details-grid">
+
+
+            <!-- VENUE -->
+
+            <div class="details-card">
+
+                <h3>
+                    Venue
+                </h3>
+
+                <p>
+
+                    Natalna Boutique Home
+
+                    <br>
+
+                    27 Tammocalao Bay Road,
+
+                    <br>
+
+                    Bacnotan, La Union
+
+                </p>
+
+                <a
+                    class="google-maps-button"
+                    href="https://www.google.com/maps/search/?api=1&query=Natalna+Boutique+Home%2C+Bacnotan%2C+La+Union"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    GOOGLE MAPS
+
+                </a>
+
+            </div>
+
+
+            <!-- MAP -->
+
+            <div class="details-card">
+
+                <img
+                    src="map.png"
+                    alt="Venue Map"
+                    class="map-image">
+
+            </div>
+
+
+            <!-- DRESS -->
+
+            <div class="details-card">
+
+                <img
+                    src="dresscode.png"
+                    alt="Dress Code"
+                    class="dress-image">
+
+            </div>
+
+
+            <div class="details-card">
+
+                <h3>
+                    Dress Code
+                </h3>
+
+                <div class="dress-text">
+
+                    <strong>Ladies</strong>
+
+                    <br>
+
+                    • Floor-length or Midi Dress
+                    <br>
+                    • Modern Filipiniana
+                    <br>
+                    • Floral Prints Welcome
+
+                    <br><br>
+
+                    <strong>Gentlemen</strong>
+
+                    <br>
+
+                    • Modern Barong
+                    <br>
+                    • Suit
+                    <br>
+                    • Long or Short Sleeve Polo
+                    <br>
+                    • Slacks (No Jeans)
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PALETTE -->
+
+        <div class="palette">
+
+            <h3>
+                Palette
+            </h3>
+
+            <div class="colors">
+
+                <span style="background:#F2D9D9"></span>
+                <span style="background:#C6C98E"></span>
+                <span style="background:#E8C1C1"></span>
+                <span style="background:#D98EB0"></span>
+                <span style="background:#F4DADA"></span>
+                <span style="background:#CCD49A"></span>
+                <span style="background:#E8BEB7"></span>
+                <span style="background:#D98DB0"></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             SPONSORS
+        ===================================================== -->
+
+        <div class="sponsors">
+
+            <h3>
+                The Entourage
+            </h3>
+
+            <p class="sponsors-intro">
+
+                With grateful hearts, we thank our beloved sponsors
+                for being part of our special day.
+
+            </p>
+
+
+            <div class="sponsor-parents">
+
+                <div class="sponsor-group">
+
+                    <h4>
+                        Parents of the Groom
+                    </h4>
+
+                    <p>
+
+                        Mr. Rhinelle Anicoche
+
+                        <br>
+
+                        Mrs. Celia Horton
+
+                    </p>
+
+                </div>
+
+
+                <div class="sponsor-group">
+
+                    <h4>
+                        Parents of the Bride
+                    </h4>
+
+                    <p>
+
+                        The Late Mr. Edwin L. Cepeda Sr.
+
+                        <br>
+
+                        Mrs. Jocelyn C. Cepeda
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="principal-sponsors">
+
+                <h4>
+                    Principal Sponsors
+                </h4>
+
+                <div class="principal-names">
+
+                    <p>
+
+                        Mr. Joel Casimsiman
+
+                        <br>
+
+                        Mr. Gregorio Anicoche Jr.
+
+                        <br>
+
+                        Hon. Ceri Antiporda
+
+                    </p>
+
+                    <p>
+
+                        Mrs. Agnes Casimsiman
+
+                        <br>
+
+                        Mrs. Elzabeth Anicoche
+
+                        <br>
+
+                        Ms. Youraidylle Alvizo
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="secondary-sponsors">
+
+                <h4>
+                    Secondary Sponsors
+                </h4>
+
+                <div class="secondary-grid">
+
+
+                    <div class="secondary-item">
+
+                        <h5>Best Man</h5>
+
+                        <p>
+                            Mr. Michael Banez
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Maid of Honor</h5>
+
+                        <p>
+                            Ms. Shajani Gayle Cepeda
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Candle</h5>
+
+                        <p>
+
+                            Ms. Maybelle Gamayon
+                            <br>
+                            Mr. Patrick Anicoche
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Cord</h5>
+
+                        <p>
+
+                            Ms. Camille Justine Pacis
+                            <br>
+                            Mr. Chris Barcenas
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Veil</h5>
+
+                        <p>
+
+                            Ms. Jeanden Garcia
+                            <br>
+                            Mr. Ralph Pizzaras
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Foot-Washing Attendants</h5>
+
+                        <p>
+
+                            Ms. Almarie Steffie Barsaga
+                            <br>
+                            Mr. Efren Cepeda Jr.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Bible Bearers</h5>
+
+                        <p>
+
+                            Ms. Rachelyn Piano
+                            <br>
+                            Mr. Lloyd Anicoche
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Coin Bearers</h5>
+
+                        <p>
+
+                            Ms. Reylyn Gonzaga
+                            <br>
+                            Mr. Aldrin Barsaga Jr.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Flower Girls</h5>
+
+                        <p>
+
+                            Celestine Miel Cepeda
+                            <br>
+                            Isrelle Jean Apilado
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="secondary-item">
+
+                        <h5>Ring Bearer</h5>
+
+                        <p>
+                            James Horton
+                        </p>
+
+                    </div>
+
+
+                    <div class="bridesmaids">
+
+                        <h5>
+                            Bridesmaids
+                        </h5>
+
+                        <p>
+
+                            Ms. Clarine Joy Asuncion
+                            <br>
+                            Ms. Aleya Alexis Balanza
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RSVP
+========================================================= -->
+
+<section id="rsvp">
+
+    <h2 class="rsvp-title">
+        RSVP
+    </h2>
+
+    <div class="rsvp-subtitle">
+
+        We’re delighted to celebrate our special day with you!
+
+        <br>
+
+        Seats have been reserved in your honor —
+        please refer to the number allotted.
+
+        <br>
+
+        <strong>
+            STRICTLY NO BRINGING OF PLUS ONE, PLEASE.
+        </strong>
+
+        <br><br>
+
+        Kindly RSVP on or before
+        <strong>October 31, 2026</strong>
+
+        <br>
+
+        by checking the letter below to confirm your attendance.
+
+    </div>
+
+
+    <!-- =====================================================
+         CUTE ENVELOPE
+    ===================================================== -->
+
+    <div class="rsvp-card">
+
+        <button
+            class="rsvp-envelope-button"
+            id="rsvpEnvelope"
+            type="button"
+            onclick="openRSVP()"
+            aria-label="Open RSVP envelope">
+
+
+            <div class="envelope-shadow"></div>
+
+
+            <div class="envelope">
+
+                <div class="envelope-left-fold"></div>
+
+                <div class="envelope-right-fold"></div>
+
+                <div class="envelope-flap-bottom"></div>
+
+                <div class="envelope-top-flap"></div>
+
+
+                <div class="envelope-flower flower-one">
+                    ✿
+                </div>
+
+                <div class="envelope-flower flower-two">
+                    ✿
+                </div>
+
+
+                <div class="envelope-seal">
+                    ♡
+                </div>
+
+
+                <div class="envelope-label">
+                    RSVP
+                </div>
+
+            </div>
+
+        </button>
+
+
+        <div class="rsvp-note">
+            Tap the little envelope ♡
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         YOUR TABLE PICTURE
+    ===================================================== -->
+
+    <div class="rsvp-table-picture">
+
+        <!--
+        ADD YOUR TABLE PICTURE HERE.
+
+        Example:
+
+        <img
+            src="table.png"
+            alt="Wedding table">
+
+        For now this area is empty.
+        -->
+
+    </div>
+
+
+    <!-- =====================================================
+         RSVP PANEL
+    ===================================================== -->
+
+    <div
+        id="rsvpPanel"
+        class="rsvp-panel"
+        aria-hidden="true">
+
+        <button
+            class="close-doodle"
+            onclick="closeRSVP()"
+            aria-label="Close">
+            ×
+        </button>
+
+
+        <div style="
+            font-size:36px;
+            color:#B04B5F;
+            margin-bottom:5px;">
+            ♡
+        </div>
+
+
+        <h3>
+            Will you join us?
+        </h3>
+
+
+        <p>
+
+            Please confirm your attendance and help us
+            make our little celebration extra special.
+
+        </p>
+
+
+        <a
+            href="#"
+            class="doodle-confirm"
+            onclick="
+            alert('Replace this link with your RSVP Google Form.');
+            return false;">
+
+            CONFIRM YOUR RSVP
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GIFTS
+========================================================= -->
+
+<section id="gifts">
+
+    <h2 class="gifts-title">
+        A Little Gift
+    </h2>
+
+    <p class="gifts-subtitle">
+
+        Your presence is already the greatest gift.
+
+        <br>
+
+        But if you wish to bless us further,
+        we would be truly grateful for a little
+
+        <br class="desktop-break">
+
+        something toward our new journey. ♡
+
+    </p>
+
+
+    <button
+        class="gift-box-button"
+        id="giftBoxButton"
+        type="button"
+        onclick="openGift()"
+        aria-label="Open gift box">
+
+
+        <span class="gift-box-base">
+
+            <span class="gift-ribbon-v"></span>
+
+            <span class="gift-ribbon-h"></span>
+
+        </span>
+
+
+        <span class="gift-message-pop">
+
+            <span>♡</span>
+
+            With love,
+            <br>
+            thank you!
+
+        </span>
+
+
+        <span class="gift-box-lid">
+
+            <span class="gift-ribbon-v"></span>
+
+            <span class="gift-bow left"></span>
+
+            <span class="gift-bow right"></span>
+
+            <span class="gift-knot"></span>
+
+        </span>
+
+    </button>
+
+
+    <div
+        class="gift-hint"
+        id="giftHint">
+
+        tap the gift to open ♡
+
+    </div>
+
+
+    <div
+        class="gift-details"
+        id="giftDetails"
+        aria-hidden="true">
+
+
+        <div class="gift-card">
+
+            <div class="gift-heart">
+                ♡
+            </div>
+
+            <h3>
+                With Love, Thank You
+            </h3>
+
+            <p>
+
+                If you prefer to give a monetary gift,
+                you may place it in a wedding envelope
+                or use the details below.
+
+            </p>
+
+
+            <p style="margin-top:25px">
+
+                <strong>GCash</strong>
+
+                <br>
+
+                Name: Your Name Here
+
+                <br>
+
+                Number: 09XX XXX XXXX
+
+            </p>
+
+
+            <p style="margin-top:20px">
+
+                <strong>Bank Transfer</strong>
+
+                <br>
+
+                Bank: Your Bank Here
+
+                <br>
+
+                Account Name: Your Name Here
+
+                <br>
+
+                Account Number: XXXX XXXX XXXX
+
+            </p>
+
+
+            <p class="gift-message">
+
+                Your love, prayers and presence
+                <br>
+                mean the world to us. ♡
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQS
+========================================================= -->
+
+<section id="faqs">
+
+    <h2 class="faq-title">
+        FAQS
+    </h2>
+
+
+    <div class="faq-container">
+
+
+        <div class="faq-card">
+
+            <h3>
+                WHAT IS THE DRESS CODE?
+            </h3>
+
+            <p>
+
+                We would love to see you in your best
+                modern Filipiniana, Barong, or summer
+                casual attire. We kindly ask guests to
+                avoid slippers, jeans, and rubber shoes.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-card">
+
+            <h3>
+                ARE PLUS ONES ALLOWED?
+            </h3>
+
+            <p>
+
+                As much as we would love to accommodate
+                everyone, plus ones are allowed only if
+                explicitly stated in the invitation.
+                We want to keep our wedding small
+                and intimate.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-card">
+
+            <h3>
+                IS THERE PARKING?
+            </h3>
+
+            <p>
+
+                Yes. There are allotted parking spaces
+                available at the venue.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-card">
+
+            <h3>
+                IS THE WEDDING INDOORS OR OUTDOORS?
+            </h3>
+
+            <p>
+
+                Our wedding will be an outdoor,
+                covered celebration. Since our wedding
+                is in April, please expect warm summer
+                weather and a lovely breeze. 🌿
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-card">
+
+            <h3>
+                WHEN IS THE RSVP DEADLINE?
+            </h3>
+
+            <p>
+
+                Kindly confirm your attendance by
+                <strong>October 31, 2026.</strong>
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-card">
+
+            <h3>
+                CAN I TAKE PHOTOS DURING THE CEREMONY?
+            </h3>
+
+            <p>
+
+                We'd love for you to capture the memories,
+                but we kindly ask that you keep your phones
+                away during the ceremony so our professional
+                photographers can capture the moments
+                without distractions.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-card">
+
+            <h3>
+                WHAT SHOULD I BRING FOR AN OUTDOOR WEDDING?
+            </h3>
+
+            <p>
+
+                Since we're celebrating outdoors in April,
+                feel free to bring a fan, umbrella,
+                sunglasses, or anything that will help
+                keep you comfortable in the summer weather.
+
+            </p>
+
+        </div>
+
+
+        <div class="faq-card">
+
+            <h3>
+                DO YOU HAVE A GIFT REGISTRY?
+            </h3>
+
+            <p>
+
+                Your presence is more than enough.
+                If you wish to bless us with a gift,
+                monetary gifts are sincerely appreciated
+                and will help us as we begin our life together.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    SEE YOU IN ELYU? ♡
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+
+function setMusicButton(playing){
+
+    if(playing){
+
+        musicButton.textContent="♫";
+
+        musicButton.classList.add("playing");
+
+        musicButton.setAttribute(
+            "aria-label",
+            "Pause music"
+        );
+
+    }else{
+
+        musicButton.textContent="♫";
+
+        musicButton.classList.remove("playing");
+
+        musicButton.setAttribute(
+            "aria-label",
+            "Play music"
+        );
+
+    }
+
+}
+
+
+musicButton.addEventListener("click",function(){
+
+    if(music.paused){
+
+        music.volume=.3;
+
+        music.play()
+        .then(function(){
+
+            setMusicButton(true);
+
+        })
+        .catch(function(){
+
+            setMusicButton(false);
+
+        });
+
+    }else{
+
+        music.pause();
+
+        setMusicButton(false);
+
+    }
+
+});
+
+
+window.addEventListener("load",function(){
+
+    music.volume=.3;
+
+    /*
+       Autoplay may be blocked by iPhone/iPad.
+       The music button will still work.
+    */
+
+    music.play()
+    .then(function(){
+
+        setMusicButton(true);
+
+    })
+    .catch(function(){
+
+        setMusicButton(false);
+
+    });
+
+});
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+const weddingDate =
+new Date("April 5, 2027 16:00:00").getTime();
+
+
+function updateCountdown(){
+
+    const now =
+    new Date().getTime();
+
+    const distance =
+    weddingDate-now;
+
+
+    if(distance<=0){
+
+        document.getElementById("days").textContent="0";
+
+        document.getElementById("hours").textContent="0";
+
+        document.getElementById("minutes").textContent="0";
+
+        document.getElementById("seconds").textContent="0";
+
+        return;
+
+    }
+
+
+    const days =
+    Math.floor(
+        distance/(1000*60*60*24)
+    );
+
+
+    const hours =
+    Math.floor(
+        (distance%(1000*60*60*24))/
+        (1000*60*60)
+    );
+
+
+    const minutes =
+    Math.floor(
+        (distance%(1000*60*60))/
+        (1000*60)
+    );
+
+
+    const seconds =
+    Math.floor(
+        (distance%(1000*60))/
+        1000
+    );
+
+
+    document.getElementById("days").textContent=
+    days;
+
+    document.getElementById("hours").textContent=
+    hours;
+
+    document.getElementById("minutes").textContent=
+    minutes;
+
+    document.getElementById("seconds").textContent=
+    seconds;
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+/* =========================================================
+   RSVP ENVELOPE
+========================================================= */
+
+function openRSVP(){
+
+    const envelope =
+    document.getElementById("rsvpEnvelope");
+
+    const panel =
+    document.getElementById("rsvpPanel");
+
+
+    envelope.classList.add("open");
+
+
+    panel.classList.add("open");
+
+    panel.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    setTimeout(function(){
+
+        panel.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },350);
+
+}
+
+
+function closeRSVP(){
+
+    const envelope =
+    document.getElementById("rsvpEnvelope");
+
+    const panel =
+    document.getElementById("rsvpPanel");
+
+
+    envelope.classList.remove("open");
+
+    panel.classList.remove("open");
+
+    panel.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+/* =========================================================
+   GIFT BOX
+========================================================= */
+
+function openGift(){
+
+    const box =
+    document.getElementById("giftBoxButton");
+
+    const details =
+    document.getElementById("giftDetails");
+
+    const hint =
+    document.getElementById("giftHint");
+
+
+    box.classList.toggle("open");
+
+    details.classList.toggle("open");
+
+
+    const isOpen =
+    box.classList.contains("open");
+
+
+    details.setAttribute(
+        "aria-hidden",
+        isOpen ? "false" : "true"
+    );
+
+
+    hint.textContent =
+    isOpen
+    ? "a little something from our hearts ♡"
+    : "tap the gift to open ♡";
+
+
+    if(isOpen){
+
+        setTimeout(function(){
+
+            details.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+        },250);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

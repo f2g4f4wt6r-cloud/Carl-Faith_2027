@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<title>Carl & Faith</title>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background: #F8F4EC;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+
+/* =====================================================
+   LANDING PAGE
+===================================================== */
+
+.landing {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    min-height: 600px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.18),
+            rgba(255,255,255,.18)
+        ),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =====================================================
+   TOP FLOWERS
+===================================================== */
+
+.flower-top {
+    position: absolute;
+
+    top: 8%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: clamp(230px, 42vw, 390px);
+
+    height: auto;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BOTTOM FLOWERS
+===================================================== */
+
+.flower-bottom {
+    position: absolute;
+
+    bottom: 6%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: clamp(230px, 42vw, 390px);
+
+    height: auto;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   WAX SEAL BUTTON
+===================================================== */
+
+.wax-btn {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: clamp(210px, 25vw, 300px);
+
+    height: clamp(210px, 25vw, 300px);
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+
+/* Seal image */
+
+.wax-btn img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 12px 16px rgba(0,0,0,.18)
+        );
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Desktop hover */
+
+@media (hover: hover) {
+
+    .wax-btn:hover {
+        transform:
+            translate(-50%, -50%)
+            scale(1.05);
+    }
+
+}
+
+
+/* Phone tap */
+
+.wax-btn:active {
+    transform:
+        translate(-50%, -50%)
+        scale(.96);
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.open-text {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 9%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #8B6A6A;
+
+    font-size: clamp(
+        18px,
+        2vw,
+        25px
+    );
+
+    letter-spacing: 2px;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   FADE ANIMATION
+===================================================== */
+
+.fade-out {
+    animation: fadeOut .8s ease forwards;
+}
+
+@keyframes fadeOut {
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .landing {
+        min-height: 100dvh;
+    }
+
+
+    /* Top flower */
+
+    .flower-top {
+        top: 10%;
+        width: 48vw;
+        max-width: 330px;
+        min-width: 240px;
+    }
+
+
+    /* Wax seal */
+
+    .wax-btn {
+
+        width: 235px;
+        height: 235px;
+
+        top: 50%;
+    }
+
+
+    /* Bottom flower */
+
+    .flower-bottom {
+
+        bottom: 7%;
+
+        width: 48vw;
+        max-width: 330px;
+        min-width: 240px;
+    }
+
+
+    /* Text */
+
+    .open-text {
+
+        bottom: 4.5%;
+
+        font-size: 19px;
+
+        letter-spacing: 2px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE PHONES
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .landing {
+
+        height: 100dvh;
+
+        min-height: 600px;
+    }
+
+
+    /* =================================================
+       TOP FLOWER
+    ================================================= */
+
+    .flower-top {
+
+        top: 10.5%;
+
+        width: 74vw;
+
+        max-width: 330px;
+
+    }
+
+
+    /* =================================================
+       WAX SEAL
+    ================================================= */
+
+    .wax-btn {
+
+        width: 255px;
+        height: 255px;
+
+        top: 50%;
+
+    }
+
+
+    /* =================================================
+       BOTTOM FLOWER
+    ================================================= */
+
+    .flower-bottom {
+
+        bottom: 8.5%;
+
+        width: 74vw;
+
+        max-width: 330px;
+
+    }
+
+
+    /* =================================================
+       OPEN TEXT
+    ================================================= */
+
+    .open-text {
+
+        bottom: 3.5%;
+
+        font-size: 18px;
+
+        letter-spacing: 1.8px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .flower-top {
+
+        top: 9%;
+
+        width: 72vw;
+
+    }
+
+
+    .wax-btn {
+
+        width: 225px;
+        height: 225px;
+
+    }
+
+
+    .flower-bottom {
+
+        bottom: 8%;
+
+        width: 72vw;
+
+    }
+
+
+    .open-text {
+
+        bottom: 3%;
+
+        font-size: 16px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+}
+
+
+/* =====================================================
+   VERY SHORT PHONES
+===================================================== */
+
+@media (max-height: 700px) and (max-width: 480px) {
+
+    .flower-top {
+        top: 6%;
+    }
+
+    .wax-btn {
+        width: 210px;
+        height: 210px;
+    }
+
+    .flower-bottom {
+        bottom: 7%;
+    }
+
+    .open-text {
+        bottom: 2%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+
+<section
+    class="landing"
+    id="landing"
+>
+
+
+    <!-- TOP FLOWERS -->
+
+    <img
+        src="flower-top.png"
+        class="flower-top"
+        alt=""
+    >
+
+
+    <!-- WAX SEAL -->
+
+    <button
+        class="wax-btn"
+        id="waxButton"
+        type="button"
+        aria-label="Open wedding invitation"
+    >
+
+        <img
+            src="Wax.png"
+            alt="Carl and Faith wax seal"
+        >
+
+    </button>
+
+
+    <!-- BOTTOM FLOWERS -->
+
+    <img
+        src="flower-bottom.png"
+        class="flower-bottom"
+        alt=""
+    >
+
+
+    <!-- TEXT -->
+
+    <div class="open-text">
+        Tap the seal to open
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     BACKGROUND MUSIC
+===================================================== -->
+
+<audio
+    id="music"
+    src="BWY.mp3"
+    loop
+    preload="auto"
+></audio>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const landing =
+    document.getElementById("landing");
+
+const waxButton =
+    document.getElementById("waxButton");
+
+const music =
+    document.getElementById("music");
+
+
+/* =====================================================
+   MUSIC VOLUME
+===================================================== */
+
+music.volume = 0.3;
+
+
+/* =====================================================
+   OPEN INVITATION
+===================================================== */
+
+waxButton.addEventListener("click", function () {
+
+    /*
+       Save that the visitor opened the invitation.
+       The home page will use this to start the music.
+    */
+
+    sessionStorage.setItem(
+        "weddingMusic",
+        "play"
+    );
+
+
+    /*
+       Start music immediately from the user's
+       tap interaction.
+    */
+
+    music.play().catch(function () {
+        // Some browsers may block the audio.
+        // The home page will try again.
+    });
+
+
+    /*
+       Fade the opening page.
+    */
+
+    landing.classList.add("fade-out");
+
+
+    /*
+       Open your existing home page.
+    */
+
+    setTimeout(function () {
+
+        window.location.href = "home.html";
+
+    }, 700);
+
+});
+
+</script>
+
+
+</body>
+</html>
